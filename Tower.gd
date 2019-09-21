@@ -1,4 +1,10 @@
 extends Node2D
 
-func _draw():
-	draw_rect(Rect2(80, 80, 100, 200), Color(0.2, 0.1, 0.3))
+onready var scene = load("res://Block.tscn")
+
+func _ready():
+	for x in range(30):
+		for y in range(200):
+			var child = scene.instance()
+			child.init(x, y)
+			self.add_child(child)

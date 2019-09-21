@@ -17,7 +17,6 @@ _global_script_class_icons={
 
 config/name="Dragon Plume"
 run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
 
 [input]
 
@@ -48,4 +47,5 @@ down={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.529412, 0.807843, 0.921569, 1 )
 environment/default_environment="res://default_env.tres"
