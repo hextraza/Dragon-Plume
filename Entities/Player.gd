@@ -7,7 +7,7 @@ enum Direction {
 
 const mov_speed = 1
 const veloc_decay = 1
-const veloc_decay_thresh = 0.10
+const veloc_decay_thresh = 0.30
 const max_veloc_len = 9
 
 var atk_cooldown = 0
@@ -28,7 +28,6 @@ func _physics_process(delta):
 	handle_input(delta)
 	handle_flame_queue(delta)
 	move_and_collide(veloc)
-	update()
 
 func handle_input(delta):
 	if atk_cooldown > 0:
