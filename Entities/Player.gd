@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 enum Direction {
   right,
@@ -31,9 +31,9 @@ func _physics_process(delta):
 	if !dead:
 		handle_movement(delta)
 		handle_input(delta)
+		self.set_linear_velocity(veloc * 50)
 		handle_damage()
 		handle_flame_queue(delta)
-		move_and_collide(veloc)
 	else:
 		self.mode = RigidBody2D.MODE_RIGID
 		self.gravity_scale = 2.5
@@ -105,8 +105,6 @@ func manage_health(amt):
 		dead = true
 		
 func handle_damage():
-	#var colliding_blocks = self.get_collider()
-	#for elem in colliding_blocks:
-		#if elem is Arrow:
-			#manage_health(-1)
-			pass
+	#if elem is Arrow:
+		#manage_health(-1)
+		pass
