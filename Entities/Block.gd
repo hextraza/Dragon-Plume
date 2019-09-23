@@ -25,7 +25,7 @@ func damage():
 		get_node("Sprite").modulate = Color(health/7.0, health/7.0, health/7.0)
 		
 		if health == 0:
-			get_node("/root/World/Player").manage_health(500)
+			get_node("/root/World/Player").manage_health(25)
 			die_and_fly(self)
 			
 			var archer = self.get_node("Archer")

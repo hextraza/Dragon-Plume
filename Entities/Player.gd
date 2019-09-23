@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 enum Direction {
   right,
@@ -9,7 +9,7 @@ const mov_speed = 1
 const veloc_decay = 1
 const veloc_decay_thresh = 0.30
 const max_veloc_len = 9
-const max_health = 10000
+const max_health = 750
 
 var atk_cooldown = 0
 var veloc_decay_accum = 0
@@ -19,10 +19,14 @@ var direction = Direction.right
 var flames_queued = 0
 var flame_cooldown = 0
 onready var flame = preload("res://Entities/Flame.tscn")
+onready var arrow = preload("res://Entities/Arrow.tscn")
 var rng = RandomNumberGenerator.new()
 var health = max_health
 var dead = false
 
+onready var sprite = self.get_node("Sprite")
+onready var area = self.get_node("Area2D")
+onready var collider = self.get_node("CollisionPolygon2D")
 
 func _ready():
 	rng.randomize()
@@ -31,12 +35,10 @@ func _physics_process(delta):
 	if !dead:
 		handle_movement(delta)
 		handle_input(delta)
-		self.set_linear_velocity(veloc * 50)
-		handle_damage()
+		move_and_slide(veloc * 50)
 		handle_flame_queue(delta)
 	else:
-		self.mode = RigidBody2D.MODE_RIGID
-		self.gravity_scale = 2.5
+		move_and_slide(Vector2(0, 550))
 
 func handle_input(delta):
 	if atk_cooldown > 0:
@@ -47,9 +49,15 @@ func handle_input(delta):
 	if Input.is_action_pressed("right"):
 		veloc.x += mov_speed
 		direction = Direction.right
+		sprite.set_flip_h(true)
+		area.scale = Vector2(-1, 1)
+		collider.scale = Vector2(-1, 1)
 	if Input.is_action_pressed("left"):
 		veloc.x -= mov_speed
 		direction = Direction.left
+		sprite.set_flip_h(false)
+		area.scale = Vector2(1, 1)
+		collider.scale = Vector2(1, 1)
 	if Input.is_action_pressed("up"):
 		veloc.y -= mov_speed
 	if Input.is_action_pressed("down"):
@@ -99,12 +107,15 @@ func gen_flame(dir_scalar):
 	child.add_torque(rng.randf_range(-120000.0, 120000.0))
 	
 func manage_health(amt):
-	health += amt
+	if (health + amt) <= max_health:
+		health += amt
+	else:
+		health = max_health
 	
 	if health <= 0:
 		dead = true
-		
-func handle_damage():
-	#if elem is Arrow:
-		#manage_health(-1)
-		pass
+
+func _on_Area2D_body_entered(body):
+	if body.get_filename() == arrow.get_path():
+		manage_health(-1)
+		body.disable_damage()
