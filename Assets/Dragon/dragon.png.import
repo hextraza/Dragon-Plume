@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dragon_dead.png-494289509da055b4dc966063d1deb075.stex"
+path="res://.import/dragon.png-5aa1453e729b5efb1e6f96a055d66766.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dragon/dragon_dead.png"
-dest_files=[ "res://.import/dragon_dead.png-494289509da055b4dc966063d1deb075.stex" ]
+source_file="res://Assets/Dragon/dragon.png"
+dest_files=[ "res://.import/dragon.png-5aa1453e729b5efb1e6f96a055d66766.stex" ]
 
 [params]
 

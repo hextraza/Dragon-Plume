@@ -35,6 +35,7 @@ func _ready():
 	rng.randomize()
 
 func _physics_process(delta):
+	print(self.get_position())
 	if !dead:
 		handle_movement(delta)
 		handle_input(delta)
@@ -120,6 +121,7 @@ func manage_health(amt):
 	
 	if health <= 0:
 		dead = true
+		sprite.frame = 1
 
 func update_score(score):
 	self.score += score

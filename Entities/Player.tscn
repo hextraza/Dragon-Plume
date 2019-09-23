@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Dragon/dragon_alive.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Dragon/dragon.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://monogram.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 4 )
 
@@ -20,6 +20,7 @@ script = ExtResource( 1 )
 position = Vector2( -0.153672, -0.231606 )
 z_index = 1
 texture = ExtResource( 2 )
+hframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 4096
@@ -37,7 +38,7 @@ margin_left = -48.0
 margin_top = -130.0
 margin_right = 66.0
 margin_bottom = -82.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "You died.
 
 Press Z to restart."
@@ -50,7 +51,7 @@ margin_left = -672.0
 margin_top = -342.0
 margin_right = -201.0
 margin_bottom = -302.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Score: 0"
 
 [node name="Area2D" type="Area2D" parent="."]
