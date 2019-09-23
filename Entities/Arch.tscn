@@ -21,3 +21,4 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Archer" parent="." instance=ExtResource( 3 )]
+position = Vector2( -0.628044, 6.90848 )
