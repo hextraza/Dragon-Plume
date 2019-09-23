@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Entities/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Dragon/dragon_alive.png" type="Texture" id=2]
-[ext_resource path="res://Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Health.tscn" type="PackedScene" id=3]
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 17425
@@ -23,6 +23,18 @@ drag_margin_bottom = 0.0
 
 [node name="Health" parent="Camera2D" instance=ExtResource( 3 )]
 position = Vector2( -683, -385 )
+
+[node name="Label" type="Label" parent="Camera2D"]
+margin_left = -48.0
+margin_top = -130.0
+margin_right = 66.0
+margin_bottom = -82.0
+text = "You died.
+
+Press Z to restart."
+align = 1
+valign = 1
+percent_visible = 0.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 1024

@@ -9,7 +9,7 @@ const mov_speed = 1
 const veloc_decay = 1
 const veloc_decay_thresh = 0.30
 const max_veloc_len = 9
-const max_health = 750
+const max_health = 450
 
 var atk_cooldown = 0
 var veloc_decay_accum = 0
@@ -27,6 +27,7 @@ var dead = false
 onready var sprite = self.get_node("Sprite")
 onready var area = self.get_node("Area2D")
 onready var collider = self.get_node("CollisionPolygon2D")
+onready var score = self.get_node("Camera2D/Label")
 
 func _ready():
 	rng.randomize()
@@ -39,6 +40,9 @@ func _physics_process(delta):
 		handle_flame_queue(delta)
 	else:
 		move_and_slide(Vector2(0, 550))
+		score.visible_characters = -1
+		if Input.is_action_pressed("reload_scene"):
+			get_tree().reload_current_scene()
 
 func handle_input(delta):
 	if atk_cooldown > 0:
