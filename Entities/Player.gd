@@ -35,7 +35,6 @@ func _ready():
 	rng.randomize()
 
 func _physics_process(delta):
-	print(self.get_position())
 	if !dead:
 		handle_movement(delta)
 		handle_input(delta)
