@@ -127,5 +127,6 @@ func update_score(score):
 	
 func _on_Area2D_body_entered(body):
 	if body.get_filename() == arrow.get_path():
-		manage_health(-1)
-		body.disable_damage()
+		if body.damaging:
+			manage_health(-1)
+			body.disable_damage()
