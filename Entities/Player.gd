@@ -9,6 +9,7 @@ const mov_speed = 1
 const veloc_decay = 1
 const veloc_decay_thresh = 0.30
 const max_veloc_len = 9
+const max_health = 10000
 
 var atk_cooldown = 0
 var veloc_decay_accum = 0
@@ -19,15 +20,23 @@ var flames_queued = 0
 var flame_cooldown = 0
 onready var flame = preload("res://Entities/Flame.tscn")
 var rng = RandomNumberGenerator.new()
+var health = max_health
+var dead = false
+
 
 func _ready():
 	rng.randomize()
 
 func _physics_process(delta):
-	handle_movement(delta)
-	handle_input(delta)
-	handle_flame_queue(delta)
-	move_and_collide(veloc)
+	if !dead:
+		handle_movement(delta)
+		handle_input(delta)
+		handle_damage()
+		handle_flame_queue(delta)
+		move_and_collide(veloc)
+	else:
+		self.mode = RigidBody2D.MODE_RIGID
+		self.gravity_scale = 2.5
 
 func handle_input(delta):
 	if atk_cooldown > 0:
@@ -88,3 +97,16 @@ func gen_flame(dir_scalar):
 	self.add_child(child)
 	child.apply_impulse(Vector2(0,0), Vector2(dir_scalar * 800, rng.randi_range(-100, 200) - 400))
 	child.add_torque(rng.randf_range(-120000.0, 120000.0))
+	
+func manage_health(amt):
+	health += amt
+	
+	if health <= 0:
+		dead = true
+		
+func handle_damage():
+	#var colliding_blocks = self.get_collider()
+	#for elem in colliding_blocks:
+		#if elem is Arrow:
+			#manage_health(-1)
+			pass

@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Star/frame1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Star/frame2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Star/frame3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Star/frame4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Star/frame5.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Star/frame6.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Star/frame7.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Star/star.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "twinkle",
+"speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[node name="Background" type="Node2D"]
+position = Vector2( 13, 25 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 2.2531, 2.00276 )
+scale = Vector2( 1.90124, 1.8011 )
+frames = SubResource( 1 )
+animation = "twinkle"
+playing = true
+
+[node name="star" type="Sprite" parent="."]
+position = Vector2( 107, 35 )
+texture = ExtResource( 8 )
+
+[node name="star2" type="Sprite" parent="."]
+position = Vector2( 44, 60 )
+texture = ExtResource( 8 )
+
+[node name="star3" type="Sprite" parent="."]
+position = Vector2( 113, 98 )
+texture = ExtResource( 8 )
+
+[node name="star4" type="Sprite" parent="."]
+position = Vector2( 78, 36 )
+texture = ExtResource( 8 )
+
+[node name="star5" type="Sprite" parent="."]
+position = Vector2( 134.475, 14.8281 )
+texture = ExtResource( 8 )
+
+[node name="star6" type="Sprite" parent="."]
+position = Vector2( 194.057, 99.9451 )
+texture = ExtResource( 8 )
+
+[node name="star" type="Sprite" parent="star6"]
+position = Vector2( -163.288, 11.5237 )
+texture = ExtResource( 8 )
+
+[node name="star2" type="Sprite" parent="star6"]
+position = Vector2( 82.6031, 12.5504 )
+texture = ExtResource( 8 )
+
+[node name="star3" type="Sprite" parent="star6"]
+position = Vector2( 75.9297, -18.5068 )
+scale = Vector2( 2.02669, 2.7967 )
+texture = ExtResource( 8 )
+
+[node name="star7" type="Sprite" parent="."]
+position = Vector2( 228.103, 65.8983 )
+texture = ExtResource( 8 )
+
+[node name="star8" type="Sprite" parent="."]
+position = Vector2( 275.895, 10.8226 )
+texture = ExtResource( 8 )
+
+[node name="star9" type="Sprite" parent="."]
+position = Vector2( 57.6191, 13.5764 )
+scale = Vector2( 1.90124, 1.8011 )
+texture = ExtResource( 8 )
+
+[node name="star10" type="Sprite" parent="."]
+position = Vector2( 112, 34 )
+scale = Vector2( 1.90124, 1.8011 )
+texture = ExtResource( 8 )
+offset = Vector2( 16.298, 14.6525 )
+
+[node name="star11" type="Sprite" parent="."]
+position = Vector2( 190.927, 15.0785 )
+scale = Vector2( 3.02779, 2.55214 )
+texture = ExtResource( 8 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 217.259, 71.6882 )
+scale = Vector2( 3.24331, 3.14577 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="star12" type="Sprite" parent="."]
+position = Vector2( 307.974, 38.0609 )
+texture = ExtResource( 8 )
+
+[node name="star13" type="Sprite" parent="."]
+position = Vector2( 299.76, 165.883 )
+texture = ExtResource( 8 )
+
+[node name="star14" type="Sprite" parent="."]
+position = Vector2( 42.0623, 238.264 )
+texture = ExtResource( 8 )
+
+[node name="star15" type="Sprite" parent="."]
+position = Vector2( 199.658, 277.278 )
+texture = ExtResource( 8 )
+
+[node name="star16" type="Sprite" parent="."]
+position = Vector2( 348.528, 109.415 )
+texture = ExtResource( 8 )
+
+[node name="star17" type="Sprite" parent="."]
+position = Vector2( 364.955, 14.4471 )
+texture = ExtResource( 8 )
+
+[node name="star18" type="Sprite" parent="."]
+position = Vector2( 337.747, 244.424 )
+texture = ExtResource( 8 )
+
+[node name="star19" type="Sprite" parent="."]
+position = Vector2( 392.162, 88.8818 )
+texture = ExtResource( 8 )
+
+[node name="star20" type="Sprite" parent="."]
+position = Vector2( 471.73, 38.5742 )
+texture = ExtResource( 8 )
+
+[node name="star21" type="Sprite" parent="."]
+position = Vector2( 462.49, 135.339 )
+scale = Vector2( 2.54004, 2.28336 )
+texture = ExtResource( 8 )

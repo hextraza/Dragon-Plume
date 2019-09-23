@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Entities/Block.gd" type="Script" id=1]
-[ext_resource path="res://Assets/tile.png" type="Texture" id=2]
+[ext_resource path="res://Assets/archway.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Archer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Block" type="RigidBody2D"]
-z_index = 1
-collision_layer = 4
-collision_mask = 16395
+[node name="Arch" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 16391
 mode = 1
 gravity_scale = 0.0
 script = ExtResource( 1 )
@@ -19,3 +19,5 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Archer" parent="." instance=ExtResource( 3 )]

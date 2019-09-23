@@ -18,6 +18,14 @@ _global_script_class_icons={
 config/name="Dragon Plume"
 run/main_scene="res://Entities/World.tscn"
 
+[display]
+
+window/size/width=1366
+window/size/height=768
+window/size/borderless=true
+window/size/fullscreen=true
+window/stretch/mode="2d"
+
 [input]
 
 right={
@@ -52,5 +60,5 @@ attack={
 
 [rendering]
 
-environment/default_clear_color=Color( 0.529412, 0.807843, 0.921569, 1 )
+environment/default_clear_color=Color( 0.027451, 0.164706, 0.223529, 1 )
 environment/default_environment="res://default_env.tres"
