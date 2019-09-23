@@ -24,7 +24,7 @@ drag_margin_bottom = 0.0
 [node name="Health" parent="Camera2D" instance=ExtResource( 3 )]
 position = Vector2( -683, -385 )
 
-[node name="Label" type="Label" parent="Camera2D"]
+[node name="DeathLabel" type="Label" parent="Camera2D"]
 margin_left = -48.0
 margin_top = -130.0
 margin_right = 66.0
@@ -35,6 +35,13 @@ Press Z to restart."
 align = 1
 valign = 1
 percent_visible = 0.0
+
+[node name="Score" type="Label" parent="Camera2D"]
+margin_left = -672.0
+margin_top = -342.0
+margin_right = -201.0
+margin_bottom = -302.0
+text = "Score: 0"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 1024

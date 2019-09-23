@@ -16,5 +16,5 @@ func _ready():
 			else:
 				child = block.instance()
 				
-			child.init(x, y)
+			child.init(x, y, y*10)
 			self.add_child(child)
