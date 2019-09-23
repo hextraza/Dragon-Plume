@@ -4,6 +4,8 @@ onready var player = get_node("/root/World/Player")
 var health = 7
 var dmg_cooldown = 0
 var score = 0
+var lifetime = 0
+var max_lifetime = 10
 
 var rng = RandomNumberGenerator.new()
 
@@ -15,6 +17,11 @@ func _process(delta):
 		dmg_cooldown -= delta
 	else:
 		dmg_cooldown = 0
+		
+	if health == -1:
+		lifetime += delta
+		if lifetime >= max_lifetime:
+			get_parent().remove_child(self)
 
 func init(x, y, score):
 	self.position = Vector2(x*32, y*32)
